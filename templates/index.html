@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head> 
+<body class="text-white" style="background-color: rgb(138, 141, 140);">
+    <div class="container">
+        <!-- Jumbotron -->
+        <div class="jumbotron text-center" style="background-image: url(https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_unenhanced.tif/full.jpg); height: 400px; background-position: center; background-size: cover;">
+            <h1 class="display-3"><b>Mission to Mars</b></h1>
+            <p>Web Scraping Homework</p>
+            <p><a class="btn btn-danger btn-lg" href="/scrape" role="button">Got to Github</a></p>
+        </div>
+        <!-- NASA Mars News -->
+        <div class="container">
+            <div class="row" id="mars-news">
+                <div class="media">
+                    <div class="media-body">
+                        <h4>Latest Mars News</h4>
+                        <h5 style="color: #146bdc">{{web_data.title_Mars}}</h5>
+                        <p style="color: #007b8b">{{web_data.para_Mars}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <!-- JPL Mars Space Images - Featured Image -->
+        <div class="container">
+            <div class="row" id="mars-featured-image">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                <h4>Featured Mars Image</h4>
+                   
+                </div>
+                    <!-- Mars Facts -->
+                    <br>
+                    <div class="row" id="mars-facts">
+                        <div class="col-md-12">
+                            <h4>Mars Facts</h4>
+                            {{web_data.table_df}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mars Hemispheres -->
+        <h4 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h4>
+        <div class="card-deck">
+            <hr>
+            <div class="col-md-12">
+                <div class="row" id="mars-hemispheres">
+                    {%Hemisphere: web_data.img_url_hemi %}
+                    <div class="col-md-6">
+                        <div class="card text-white bg-danger" style="margin: 30px;">
+                            <div class="card-body">
+                                <p class="card-text">{{web_data.title_text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
+
